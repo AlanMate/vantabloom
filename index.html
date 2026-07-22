@@ -315,11 +315,12 @@
             const logo = document.querySelector('.footer-logo-text');
             if (!logo) return;
 
-            logo.style.transform = 'scaleX(1)';
+            const shift = window.matchMedia('(min-width: 701px)').matches ? '-1.8vw' : '0';
+            logo.style.transform = `translateX(${shift}) scaleX(1)`;
             const availableWidth = Math.max(1, logo.clientWidth - 4);
             const contentWidth = logo.scrollWidth;
             if (contentWidth > availableWidth) {
-                logo.style.transform = `scaleX(${availableWidth / contentWidth})`;
+                logo.style.transform = `translateX(${shift}) scaleX(${availableWidth / contentWidth})`;
             }
         }
 
